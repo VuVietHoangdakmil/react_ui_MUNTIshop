@@ -1,8 +1,8 @@
 import Home from "../Pages/Home";
-import All from "../Pages/All";
+import Shop from "../Pages/Shop";
 
 const publicRouter =[
     {Path:"/", Page:Home},
-    {Path:"/Shop", Page:All}
+    {Path:"/Shop", Page:Shop}
 ]
 export {publicRouter};
