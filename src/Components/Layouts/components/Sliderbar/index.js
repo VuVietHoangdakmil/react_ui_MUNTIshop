@@ -90,12 +90,12 @@ function Sliderbar() {
                     <div className="navbar-nav ml-auto py-0 d-none d-lg-block">
                         <Link to="" className="btn px-0">
                             <FontAwesomeIcon icon={faHeart} className="text-primary"/>
-                            <span className="badge text-secondary border border-secondary rounded-circle" style={{paddingBottom: "2px"}}>0</span>
+                            <span className="badge text-secondary border border-secondary rounded-circle" style={{paddingBottom: "2px"}}></span>
                         </Link>
                         <Link to="" className="btn px-0 ml-3">
                             
                             <FontAwesomeIcon icon={faShoppingCart} className="text-primary"/>
-                            <span className="badge text-secondary border border-secondary rounded-circle" style={{paddingBottom: "2px"}}>0</span>
+                            <span className="badge text-secondary border border-secondary rounded-circle" style={{paddingBottom: "2px"}}>20</span>
                         </Link>
                     </div>
                 </div>

@@ -6052,12 +6052,12 @@ a.close.disabled {
 
 .carousel-item {
   position: relative;
-  display: none;
+  /* display: none; */
   float: left;
   width: 100%;
   margin-right: -100%;
   backface-visibility: hidden;
-  transition: transform 0.6s ease-in-out;
+  /* transition: transform 0.6s ease-in-out; */
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -6069,7 +6069,7 @@ a.close.disabled {
 .carousel-item.active,
 .carousel-item-next,
 .carousel-item-prev {
-  display: block;
+  /* display: block; */
 }
 
 .carousel-item-next:not(.carousel-item-left),
