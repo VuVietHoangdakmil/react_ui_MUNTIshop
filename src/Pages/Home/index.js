@@ -1,6 +1,6 @@
 function Home() {
     return (<div>
-        Home 
+        Home thay doi lan 2
     </div>);
 }
 
