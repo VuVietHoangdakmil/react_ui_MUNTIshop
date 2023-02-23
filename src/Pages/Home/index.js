@@ -1,6 +1,6 @@
 function Home() {
     return (<div>
-        Home 123123
+        Home 
     </div>);
 }
 
