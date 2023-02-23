@@ -1,7 +1,7 @@
 function Home() {
     return (<div>
-        Home
+        Home 123123
     </div>);
 }
 
-export default Home;
+export default Home; 
