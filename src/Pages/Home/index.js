@@ -9,8 +9,8 @@ import {Link} from "react-router-dom"
 
 function Title({children}){
     return(
-        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4">
-            <span class="bg-secondary pr-3">{children}</span>
+        <h2 className="section-title position-relative text-uppercase mx-xl-5 mb-4">
+            <span className="bg-secondary pr-3">{children}</span>
         </h2>
     )
 }
@@ -194,7 +194,7 @@ function Category(){
     )
 }
 
-function Product(){
+function Product({title,aip}){
 
     const dataProduct = [
         {name:'Product Name Goes Here',img:"product-1.jpg",url:"", price:500000,priceDel:250000},
@@ -242,7 +242,7 @@ function Product(){
 
     return (
         <div className="container-fluid pt-5 pb-3">
-            <Title>Featured Products</Title>
+            <Title>{title}</Title>
             <div className="row px-xl-5">
             {dataProduct.map((item,index)=>
                 <Col
@@ -259,14 +259,93 @@ function Product(){
         </div>
     )
 }
+
+function Offer(){
+
+    function Col1(){
+        return(
+            <div className="col-md-6">
+            <div className="product-offer mb-30" style={{height: "300px"}}>
+                <img className="img-fluid" src="img/offer-1.jpg" alt=""/>
+                <div className="offer-text">
+                    <h6 className="text-white text-uppercase">Save 20%</h6>
+                    <h3 className="text-white mb-3">Special Offer</h3>
+                    <a href="#" className="btn btn-primary">Shop Now</a>
+                </div>
+            </div>
+        </div>
+        )
+    }
+    function Col2(){
+        return(
+            <div className="col-md-6">
+                <div className="product-offer mb-30" style={{height: "300px"}}>
+                    <img className="img-fluid" src="img/offer-2.jpg" alt=""/>
+                    <div className="offer-text">
+                        <h6 className="text-white text-uppercase">Save 20%</h6>
+                        <h3 className="text-white mb-3">Special Offer</h3>
+                        <a href="" className="btn btn-primary">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+    return(
+        <div className="container-fluid pt-5 pb-3">
+            <div className="row px-xl-5">
+                <Col1/>
+                <Col2/>
+            </div>
+        </div>
+    )
+}
+function Vendor(){
+    return(
+        <div className="container-fluid py-5">
+        <div className="row px-xl-5">
+            <div className="col">
+                <div className="owl-carousel vendor-carousel">
+                    <div className="bg-light p-4">
+                        <img src="img/vendor-1.jpg" alt=""/>
+                    </div>
+                    <div className="bg-light p-4">
+                        <img src="img/vendor-2.jpg" alt=""/>
+                    </div>
+                    <div className="bg-light p-4">
+                        <img src="img/vendor-3.jpg" alt=""/>
+                    </div>
+                    <div className="bg-light p-4">
+                        <img src="img/vendor-4.jpg" alt=""/>
+                    </div>
+                    <div className="bg-light p-4">
+                        <img src="img/vendor-5.jpg" alt=""/>
+                    </div>
+                    <div className="bg-light p-4">
+                        <img src="img/vendor-6.jpg" alt=""/>
+                    </div>
+                    <div className="bg-light p-4">
+                        <img src="img/vendor-7.jpg" alt=""/>
+                    </div>
+                    <div className="bg-light p-4">
+                        <img src="img/vendor-8.jpg" alt=""/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    )
+}
 function Home() {
     
     return (
        <Fragment>
             <Crousel/>
             <ContainerFluid/>
-            {/* <Category/> */}
-            <Product/>
+            <Category/>
+            <Product title="Featured Products" />
+            <Offer/>
+            <Product title="Product Name Goes Here" />
+            {/* <Vendor/> */}
        </Fragment>
     );
 }

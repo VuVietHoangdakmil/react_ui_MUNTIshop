@@ -12,7 +12,7 @@ function BtnScrollTop (){
     useEffect(()=>{
         function handleScroll() {
             const scrollTop = document.documentElement.scrollTop;
-            setIsVisible(scrollTop > 0);
+            setIsVisible(scrollTop > 200);
           }
       
           window.addEventListener('scroll', handleScroll);
@@ -37,7 +37,8 @@ function BtnScrollTop (){
         onClick={handleClick}
         className="btn_cuon" 
         style={buttonStyle}>
-        <FontAwesomeIcon  icon={faAngleDoubleUp}/>
+        <FontAwesomeIcon  icon={faAngleDoubleUp}
+    />
     </div>  
  )
 }
