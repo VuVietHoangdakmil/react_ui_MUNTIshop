@@ -1,6 +1,20 @@
+import {addCommas} from '../../Functions';
+
 import {Fragment, useState} from "react"
-import {faCheck,faShippingFast,faExchangeAlt,faPhoneVolume} from "@fortawesome/free-solid-svg-icons"
+import {faCheck,faShippingFast,faExchangeAlt,faPhoneVolume,faShoppingCart,faHeart,faSyncAlt,faSearch,faStar} 
+from "@fortawesome/free-solid-svg-icons"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
+import {Link} from "react-router-dom"
+
+
+function Title({children}){
+    return(
+        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4">
+            <span class="bg-secondary pr-3">{children}</span>
+        </h2>
+    )
+}
+
 function Crousel(){
 
     function Col1(){
@@ -16,7 +30,7 @@ function Crousel(){
                     <ol className="carousel-indicators">
                         {
                             list.map((item,index) => 
-                            <li 
+                            <li key={index}
                                 onClick={()=>{setActive(index)}}
                                 className={index == Active ? "active" :""}
                                 data-target={item["data-target"]} 
@@ -128,12 +142,131 @@ function ContainerFluid(){
     )
 }
 
+function Category(){
+
+    const Products=[
+        {img:"cat-1.jpg",name:"Category Name",qualytyProuct:"100 Products",url:""},
+        {img:"cat-2.jpg",name:"Category Name",qualytyProuct:"100 Products",url:""},
+        {img:"cat-3.jpg",name:"Category Name",qualytyProuct:"100 Products",url:""},
+        {img:"cat-4.jpg",name:"Category Name",qualytyProuct:"100 Products",url:""},
+        {img:"cat-4.jpg",name:"Category Name",qualytyProuct:"100 Products",url:""},
+        {img:"cat-3.jpg",name:"Category Name",qualytyProuct:"100 Products",url:""},
+        {img:"cat-2.jpg",name:"Category Name",qualytyProuct:"100 Products",url:""},
+        {img:"cat-1.jpg",name:"Category Name",qualytyProuct:"100 Products",url:""},
+        {img:"cat-3.jpg",name:"Category Name",qualytyProuct:"100 Products",url:""},
+        {img:"cat-4.jpg",name:"Category Name",qualytyProuct:"100 Products",url:""},
+        {img:"cat-1.jpg",name:"Category Name",qualytyProuct:"100 Products",url:""},
+        {img:"cat-2.jpg",name:"Category Name",qualytyProuct:"100 Products",url:""},
+    ]
+    function Col({img,name, qualytyProuct,url}){
+        return(
+            <div className="col-lg-3 col-md-4 col-sm-6 pb-1">
+            <Link className="text-decoration-none" to={url}>
+                <div className="cat-item d-flex align-items-center mb-4">
+                    <div className="overflow-hidden" style={{width: "100px", height: "100px"}}>
+                        <img className="img-fluid" src={`img/${img}`} alt=""/>
+                    </div>
+                    <div className="flex-fill pl-3">
+                        <h6>{name}</h6>
+                        <small className="text-body">{qualytyProuct}</small>
+                    </div>
+                </div>
+            </Link>
+        </div>
+        )
+    }
+
+    return (
+        <div className="container-fluid pt-5">
+            <Title>Categories</Title>
+            <div className="row px-xl-5 pb-3">
+                {Products.map((item,index)=> 
+                    <Col
+                        key={index}
+                        img={item.img}
+                        name={item.name}
+                        qualytyProuct={item.qualytyProuct}
+                        url={item.url}
+                    />)
+                }
+            </div>
+        </div>
+    )
+}
+
+function Product(){
+
+    const dataProduct = [
+        {name:'Product Name Goes Here',img:"product-1.jpg",url:"", price:500000,priceDel:250000},
+        {name:'Product Name Goes Here',img:"product-2.jpg",url:"", price:500000,priceDel:250000},
+        {name:'Product Name Goes Here',img:"product-3.jpg",url:"", price:500000,priceDel:250000},
+        {name:'Product Name Goes Here',img:"product-4.jpg",url:"", price:500000,priceDel:250000},
+        {name:'Product Name Goes Here',img:"product-5.jpg",url:"", price:500000,priceDel:250000},
+        {name:'Product Name Goes Here',img:"product-6.jpg",url:"", price:500000,priceDel:250000},
+        {name:'Product Name Goes Here',img:"product-7.jpg",url:"", price:500000,priceDel:250000},
+        {name:'Product Name Goes Here',img:"product-8.jpg",url:"", price:500000,priceDel:250000},
+        
+    ]
+    function Col({img,name,url,price,priceDel}) {
+        
+        return (
+            <div className="col-lg-3 col-md-4 col-sm-6 pb-1">
+            <div className="product-item bg-light mb-4">
+                <div className="product-img position-relative overflow-hidden">
+                    <img className="img-fluid w-100" src={`img/${img}`} alt=""/>
+                    <div className="product-action">
+                        <Link className="btn btn-outline-dark btn-square" to=""><FontAwesomeIcon icon={faShoppingCart}/></Link>
+                        <Link className="btn btn-outline-dark btn-square" to=""><FontAwesomeIcon icon={faHeart}/></Link>
+                        <Link className="btn btn-outline-dark btn-square" to=""><FontAwesomeIcon icon={faSyncAlt}/></Link>
+                        <Link className="btn btn-outline-dark btn-square" to=""><FontAwesomeIcon icon={faSearch}/></Link>
+                    </div>
+                </div>
+                <div className="text-center py-4">
+                    <Link className="h6 text-decoration-none text-truncate" to={url}>{name}</Link>
+                    <div className="d-flex align-items-center justify-content-center mt-2">
+                        <h5>{addCommas(price)}đ</h5><h6 className="text-muted ml-2"><del>{addCommas(priceDel)}đ</del></h6>
+                    </div>
+                    <div className="d-flex align-items-center justify-content-center mb-1">
+                        <FontAwesomeIcon icon={faStar} className="text-primary mr-1"/>
+                        <FontAwesomeIcon icon={faStar} className="text-primary mr-1"/>
+                        <FontAwesomeIcon icon={faStar} className="text-primary mr-1"/>
+                        <FontAwesomeIcon icon={faStar} className="text-primary mr-1"/>
+                        <FontAwesomeIcon icon={faStar} className="text-primary mr-1"/>
+                        <small>(99)</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        )
+    }
+
+    return (
+        <div className="container-fluid pt-5 pb-3">
+            <Title>Featured Products</Title>
+            <div className="row px-xl-5">
+            {dataProduct.map((item,index)=>
+                <Col
+                    key={index}
+                    name={item.name}
+                    img ={item.img}
+                    url={item.url}
+                    price={item.price}
+                    priceDel={item.priceDel}
+                />
+            )
+            }
+            </div>
+        </div>
+    )
+}
 function Home() {
     
     return (
        <Fragment>
             <Crousel/>
             <ContainerFluid/>
+            {/* <Category/> */}
+            <Product/>
        </Fragment>
     );
 }
